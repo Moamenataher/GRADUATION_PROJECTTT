@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/pages/DieseaseDiagnose_page.dart';
 import 'package:graduation_project/pages/Doctor_page.dart';
+import 'package:graduation_project/pages/Exercise_page.dart';
 import 'package:graduation_project/widget/CustomHomeAppBar.dart';
 import 'package:graduation_project/widget/CustomServicesCard.dart';
 import 'package:graduation_project/widget/CustomText.dart';
@@ -41,11 +43,24 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Spacer(flex: 3,),
                     CustomServiceCard(
-                      onTap: (){},
+                      onTap: (){
+
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder:(context)=>const DiseaseDiagnosePage()
+                            ));
+                      },
                         image: "assets/VMService.png", lable: "Disease Diagnosis"),
                     const Spacer(flex: 2),
                     CustomServiceCard(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder:(context)=>const ExercisePage()
+                            ));
+                      },
                         image: "assets/exersiseService.png", lable: "Exercises"),
                     const Spacer(flex: 3,),
                   ],

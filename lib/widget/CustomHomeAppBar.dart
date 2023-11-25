@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/pages/instruction_page.dart';
+import 'package:graduation_project/pages/login_page.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -105,7 +106,12 @@ class drawer extends StatelessWidget {
             Padding(
               padding: const  EdgeInsets.symmetric(vertical: 12.0),
               child: GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context)=>LoginPage()));
+                },
                 child: const ListTile(
                   leading:Icon(Icons.logout_sharp, color: Colors.white,size: 40,),
                   title: CustomText(text: "Log out", size: 20,color: Colors.white, textAlign: TextAlign.left),

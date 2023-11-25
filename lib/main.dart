@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/DieseaseDiagnose_page.dart';
-import 'package:graduation_project/pages/Exercise_page.dart';
-import 'package:graduation_project/pages/haveTheDiseas_page.dart';
-import 'package:graduation_project/pages/login_page.dart';
+import 'package:graduation_project/pages/splashAndOnboarding_pages/splash_page.dart';
+import 'package:graduation_project/widget/CustomNavBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const  MaterialApp(
       debugShowCheckedModeBanner: true,
-        home: HaveTheDiseae()
+        home: CustomNavBar()
     );
   }
 }

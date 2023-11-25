@@ -15,6 +15,16 @@ class DiseaseDiagnosePage extends StatelessWidget {
             child: Column(
               children: [
 
+                Row(children: [
+                  IconButton(
+                      onPressed: (){
+                        Navigator.pop(context);
+                      },
+                      icon:const Icon(Icons.arrow_back_outlined,
+                        size: 30,
+                        color: Colors.grey,))
+                ],),
+
                 DoctorAndDiseasPageAppBar(
                     image: "assets/dctrpg.png",
                     title: "Do you want to diagnose ",

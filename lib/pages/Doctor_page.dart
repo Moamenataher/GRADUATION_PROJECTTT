@@ -29,6 +29,7 @@ class DoctorPage extends StatelessWidget {
                const  DoctorAndDiseasPageAppBar(
                    image: "assets/dctrpg.png",
                    title: "Looking for a doctor?",
+                   secondTitle: "",
                    subTitle: "Check the list of the best",
                    secondSubTitle: "nearest doctors"),
 
