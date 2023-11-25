@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
              const CustomAppBar(
               imageWidth:150,
                   imageHeight: 150,
-                  color:Color(0xffABD6E5)),
+                  color:Color(0xffFEFEFE)),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 36.0,horizontal: 20),

@@ -48,12 +48,14 @@ class CustomTextField extends StatelessWidget {
           obscureText:isObscure??false ,
           keyboardType: keyBoardType,
           decoration: InputDecoration(
+            filled:true,
+            fillColor:Color(0xffFEFEFE) ,
             hintText:hintText,
             suffixIcon:suffixIcon ,
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide:const  BorderSide(
-                      color: Colors.grey,
+                      color: Color(0xffFEFEFE),
                       width: 2,
                   )
 
@@ -61,7 +63,7 @@ class CustomTextField extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide:const  BorderSide(
-                      color: Colors.grey,
+                      color: Color(0xffFEFEFE),
                       width: 3,
                   )
 

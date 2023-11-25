@@ -1,8 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 
-class DoctorPageAppBar extends StatelessWidget {
-  const DoctorPageAppBar({super.key});
+class DoctorAndDiseasPageAppBar extends StatelessWidget {
+  const DoctorAndDiseasPageAppBar({super.key, required this.image, required this.title, required this.subTitle, required this.secondSubTitle,  this.secondTitle});
+
+  final String image;
+  final String title;
+  final String? secondTitle;
+
+  final String subTitle;
+  final String secondSubTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +35,23 @@ class DoctorPageAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset(
-              "assets/dctrpg.png",
+              image,
               width: 120,
               height: 120,
           ),
 
-          const Column(
+           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomText(text: "Looking for a doctor?", size:22, color: Color(0xff596992), textAlign: TextAlign.center),
+              CustomText(text: title, size:22, color: Color(0xff596992), textAlign: TextAlign.center),
+
+              CustomText(text: secondTitle!, size:22, color: Color(0xff596992), textAlign: TextAlign.center),
+
+
               SizedBox(height: 12,),
-              CustomText(text: "Chech the list of the best ", size: 18, color: Color(0xff8E95A7), textAlign: TextAlign.center,fontWeight: FontWeight.bold,),
-              CustomText(text: " nearest doctors", size: 18, color: Color(0xff8E95A7), textAlign: TextAlign.left,fontWeight: FontWeight.bold,)
+              CustomText(text: subTitle, size: 18, color: Color(0xff8E95A7), textAlign: TextAlign.center,fontWeight: FontWeight.bold,),
+              CustomText(text: secondSubTitle, size: 18, color: Color(0xff8E95A7), textAlign: TextAlign.left,fontWeight: FontWeight.bold,)
 
             ],
           )

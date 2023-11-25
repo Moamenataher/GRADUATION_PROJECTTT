@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const CustomAppBar(
               imageHeight: 130,
               imageWidth: 130,
-                color: Color(0xffD3D4D5)),
+                color: Color(0xffFEFEFE)),
 
             Padding(
               padding: const EdgeInsets.all(20.0),
