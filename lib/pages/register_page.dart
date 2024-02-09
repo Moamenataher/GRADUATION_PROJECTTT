@@ -33,8 +33,8 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           children: [
             const CustomAppBar(
-              imageHeight: 130,
-              imageWidth: 130,
+                imageHeight: 130,
+                imageWidth: 130,
                 color: Color(0xffFEFEFE)),
 
             Padding(
@@ -44,27 +44,35 @@ class _RegisterPageState extends State<RegisterPage> {
                 autovalidateMode: autovalidateMode,
                 child: Column(
                   children: [
-                   const CustomTextField(
-                       fieldLable:"User name",
-                       keyBoardType: TextInputType.text,
-                       validateMessege: "user name is required"),
+                    const CustomTextField(
+                        fieldLable:"User name",
+                        keyBoardType: TextInputType.text,
+                        validateMessege: "user name is required"),
 
                     const SizedBox(height: 20,),
 
                     const CustomTextField(
-                        fieldLable:"Email or Phone number",
+                        fieldLable:"Email ",
                         validateMessege: "this field is required"),
 
 
                     const SizedBox(height: 20,),
 
                     const CustomTextField(
-                        fieldLable:"Birth date",
-                        keyBoardType: TextInputType.datetime,),
+                        fieldLable:"Phone number ",
+                        validateMessege: "this field is required"),
+
 
                     const SizedBox(height: 20,),
 
-                     CustomTextField(
+
+                    const CustomTextField(
+                      fieldLable:"Birth date",
+                      keyBoardType: TextInputType.datetime,),
+
+                    const SizedBox(height: 20,),
+
+                    CustomTextField(
                         isObscure:obscureText_2,
                         suffixIcon: IconButton(
                             onPressed:(){
@@ -80,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                     const SizedBox(height: 20,),
 
-                     CustomTextField(
+                    CustomTextField(
                         isObscure:obscureText,
                         suffixIcon: IconButton(
                             onPressed:(){
@@ -101,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         containerWidth: MediaQuery.of(context).size.width,
                         textColor:Colors.white,
                         backgroundColor: const Color(0xff58B0CD),
-                        childText: "Sign up",
+                        childText: "Register",
                         onPressed: (){
                           setState(() {
 
@@ -128,12 +136,12 @@ class _RegisterPageState extends State<RegisterPage> {
                         CustomButton(
                             fontSize: 18,
                             textColor: const Color(0xff58B0CD),
-                            childText: "Sign in",
+                            childText: "login",
                             onPressed:(){
                               Navigator.push(
                                   context,
-                                 MaterialPageRoute(
-                                     builder: (context)=>const LoginPage()));
+                                  MaterialPageRoute(
+                                      builder: (context)=>const LoginPage()));
                             })
                       ],
                     )

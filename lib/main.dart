@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:graduation_project/pages/QrCode_page.dart';
+import 'package:graduation_project/pages/editprofile.dart';
+import 'package:graduation_project/pages/feedback&support_page.dart';
+import 'package:graduation_project/pages/home_Page.dart';
+import 'package:graduation_project/pages/instruction_page.dart';
+import 'package:graduation_project/pages/profile.dart';
+import 'package:graduation_project/pages/splashAndOnboarding_pages/onBoardingPages.dart';
 import 'package:graduation_project/pages/splashAndOnboarding_pages/splash_page.dart';
 import 'package:graduation_project/widget/CustomNavBar.dart';
 
@@ -12,9 +20,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const  MaterialApp(
-      debugShowCheckedModeBanner: true,
-        home: CustomNavBar()
+    return   const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CustomNavBar(),
     );
   }
 }
