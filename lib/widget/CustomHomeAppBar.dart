@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/instruction_page.dart';
-import 'package:graduation_project/pages/login_page.dart';
+import 'package:graduation_project/view/instruction_page.dart';
+import 'package:graduation_project/view/login_page.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 
 class CustomHomeAppBar extends StatelessWidget {

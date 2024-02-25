@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/DieseaseDiagnose_page.dart';
-import 'package:graduation_project/pages/Doctor_page.dart';
-import 'package:graduation_project/pages/Exercise_page.dart';
+import 'package:graduation_project/view/DieseaseDiagnose_page.dart';
+import 'package:graduation_project/view/Doctor_page.dart';
+import 'package:graduation_project/view/Exercise_page.dart';
 import 'package:graduation_project/widget/CustomHomeAppBar.dart';
 import 'package:graduation_project/widget/CustomServicesCard.dart';
 import 'package:graduation_project/widget/CustomText.dart';

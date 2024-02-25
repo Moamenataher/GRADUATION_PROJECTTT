@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/login_page.dart';
+import 'package:graduation_project/view/login_page.dart';
 import 'package:graduation_project/widget/CustomAppBar_widget.dart';
 import 'package:graduation_project/widget/CustomTextField.dart';
 

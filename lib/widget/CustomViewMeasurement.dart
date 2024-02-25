@@ -4,7 +4,7 @@ import 'package:graduation_project/main.dart';
 import 'package:graduation_project/widget/CustomLineChart.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 
-import '../Models/LineChartModel.dart';
+import '../models/LineChartModel.dart';
 
 
 

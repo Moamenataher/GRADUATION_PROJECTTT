@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/Alarm_page.dart';
+import 'package:graduation_project/view/Alarm_page.dart';
 import 'package:graduation_project/widget/CustomSaveAndCancel_widget.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 import 'package:graduation_project/widget/CustomTextField.dart';

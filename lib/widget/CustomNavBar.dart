@@ -3,9 +3,9 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
-import '../pages/Alarm_page.dart';
-import '../pages/QrCode_page.dart';
-import '../pages/home_Page.dart';
+import '../view/Alarm_page.dart';
+import '../view/QrCode_page.dart';
+import '../view/home_Page.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key, });
