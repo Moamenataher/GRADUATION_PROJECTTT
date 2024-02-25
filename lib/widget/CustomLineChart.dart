@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../Models/LineChartModel.dart';
+import '../models/LineChartModel.dart';
 import '../main.dart';
 
 class CustomLineChart extends StatelessWidget {

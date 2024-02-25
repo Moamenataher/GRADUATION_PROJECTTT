@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/globalData.dart';
 import 'package:graduation_project/main.dart';
-import 'package:graduation_project/pages/SetAlarm_page.dart';
+import 'package:graduation_project/view/SetAlarm_page.dart';
 
-import '../Models/Alarm_model.dart';
+import '../models/Alarm_model.dart';
 import '../widget/CustomText.dart';
 
 class AlarmPage extends StatefulWidget {

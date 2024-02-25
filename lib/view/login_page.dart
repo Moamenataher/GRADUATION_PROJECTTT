@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/ResetPassword_pages/EnterYourEmail_page.dart';
-import 'package:graduation_project/pages/register_page.dart';
+import 'package:graduation_project/view/ResetPassword_pages/EnterYourEmail_page.dart';
+import 'package:graduation_project/view/register_page.dart';
 import 'package:graduation_project/widget/CustomAppBar_widget.dart';
 import 'package:graduation_project/widget/CustomButton.dart';
 import 'package:graduation_project/widget/CustomText.dart';

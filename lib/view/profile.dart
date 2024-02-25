@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/editprofile.dart';
+import 'package:graduation_project/view/editprofile.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

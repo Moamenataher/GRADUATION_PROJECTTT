@@ -41,6 +41,15 @@ dependencies:
   # A flutter plugin for adapting screen and font size.
   flutter_screenutil: ^5.9.0
 
+  # Customizable animated page indicator with a set of built-in effects.
+  smooth_page_indicator: ^1.1.0
+
+  # A wrapper around InheritedWidget to make them easier to use and more reusable.
+  provider: ^6.1.1
+
+  # An SVG rendering and widget library for Flutter
+  flutter_svg: ^2.0.10+1
+
   cupertino_icons: ^1.0.2
   convex_bottom_bar: ^3.2.0
   curved_labeled_navigation_bar: ^2.0.2

@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/widget/CustomNavBar.dart';
+import 'package:graduation_project/view/onboarding/onboarding_page.dart';
+import 'package:provider/provider.dart';
+
+import 'logic/providers/onboarding_provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [
+      SystemUiOverlay.bottom,
+      SystemUiOverlay.top,
+    ],
+  );
 
-   SystemChrome.setSystemUIOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
+      statusBarColor: Color(0xffF1F4FF),
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white,
+      systemNavigationBarColor: Color(0xffF1F4FF),
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
@@ -28,9 +40,12 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 800),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: CustomNavBar(),
+        home: ChangeNotifierProvider(
+          create: (context) => OnboardingProvider(),
+          child: const OnboardingPage(),
+        ),
       ),
     );
   }
