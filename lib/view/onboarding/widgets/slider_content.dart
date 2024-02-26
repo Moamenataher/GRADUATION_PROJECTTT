@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../../logic/providers/onboarding_provider.dart';
+import '../../../logic/login/login_provider.dart';
+import '../../../logic/onboarding/onboarding_provider.dart';
 import '../../../widget/CustomButton.dart';
 import '../../../widget/CustomText.dart';
-import '../../login_page.dart';
+import '../../login/login_page.dart';
 
 class SliderContent extends StatelessWidget {
   const SliderContent({super.key});
@@ -63,12 +64,16 @@ class SliderContent extends StatelessWidget {
                           .setCurrentIndex(currentIndex + 1);
 
                       pageController.nextPage(
-                          duration: const Duration(microseconds: 500),
-                          curve: Curves.easeInOut);
+                        duration: const Duration(microseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
                     } else {
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
+                          builder: (context) => ChangeNotifierProvider(
+                            create: (context) => LoginProvider(),
+                            child: const LoginPage(),
+                          ),
                         ),
                         (route) => false,
                       );
