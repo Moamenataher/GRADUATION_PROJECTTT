@@ -25,6 +25,7 @@ class LoginPage extends StatelessWidget {
                 horizontal: 20.0,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     'Welcome to Glovy!',
