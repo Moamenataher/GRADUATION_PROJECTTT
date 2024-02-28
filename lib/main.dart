@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/view/onboarding/onboarding_page.dart';
 import 'package:provider/provider.dart';
 
-import 'logic/providers/onboarding_provider.dart';
+import 'logic/onboarding/onboarding_provider.dart';
+import 'view/login/login_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,10 +43,14 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color(0xffF1F4FF),
+          primaryColor: const Color(0xff58B0CD),
+        ),
         home: ChangeNotifierProvider(
           create: (context) => OnboardingProvider(),
           child: const OnboardingPage(),
-        ),
+        ), 
       ),
     );
   }

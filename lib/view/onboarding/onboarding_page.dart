@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../logic/providers/onboarding_provider.dart';
+import '../../logic/onboarding/onboarding_provider.dart';
 import 'widgets/slider_content.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -42,7 +42,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final slides = context.read<OnboardingProvider>().slides;
     final currentIndex = context.watch<OnboardingProvider>().currentIndex;
     return Scaffold(
-      backgroundColor: const Color(0xffF1F4FF),
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
