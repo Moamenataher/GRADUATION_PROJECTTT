@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../../logic/login/login_provider.dart';
 import '../../../logic/onboarding/onboarding_provider.dart';
 import '../../../widget/CustomButton.dart';
 import '../../../widget/CustomText.dart';
@@ -70,10 +69,7 @@ class SliderContent extends StatelessWidget {
                     } else {
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                          builder: (context) => ChangeNotifierProvider(
-                            create: (context) => LoginProvider(),
-                            child: const LoginPage(),
-                          ),
+                          builder: (context) => const LoginPage(),
                         ),
                         (route) => false,
                       );

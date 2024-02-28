@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../logic/login/login_provider.dart';
+import '../../logic/registration/registration_provider.dart';
 import '../../widgets/custom_app_bar.dart';
-import 'widgets/login_form.dart';
+import 'widgets/registration_form.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ChangeNotifierProvider(
-        create: (context) => LoginProvider(),
+        create: (context) => RegistrationProvider(),
         child: const SingleChildScrollView(
           child: Column(
             children: [
               CustomAppBar(),
-              SizedBox(height: 24),
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 20.0,
                 ),
-                child: LoginForm(),
+                child: RegistrationForm(),
               ),
             ],
           ),
@@ -31,3 +31,4 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+

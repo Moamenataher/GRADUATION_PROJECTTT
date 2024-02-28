@@ -14,7 +14,7 @@ class LoginNameOrEmailInput extends StatelessWidget {
       label: 'Username Or Email',
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Field is required';
+          return 'Username or Email is required';
         }
         return null;
       },
