@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'logic/onboarding/onboarding_provider.dart';
-import 'view/registration/registration_page.dart';
+import 'view/forgot_password/forgot_password_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         ),
         home: ChangeNotifierProvider(
           create: (context) => OnboardingProvider(),
-          child: const RegistrationPage(),
+          child: const ForgotPassword(),
         ), 
       ),
     );
