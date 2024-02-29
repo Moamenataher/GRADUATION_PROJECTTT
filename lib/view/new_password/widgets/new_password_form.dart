@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../../logic/forgot_password/forgot_password_provider.dart';
-import 'forgot_password_button.dart';
-import 'forgot_password_email_input.dart';
+import '../../../logic/new_password/new_password_provider.dart';
+import 'new_password_button.dart';
+import 'new_password_confirmation_input.dart';
+import 'new_password_input.dart';
 
-class ForgotPasswordForm extends StatelessWidget {
-  const ForgotPasswordForm({
+class NewPasswordForm extends StatelessWidget {
+  const NewPasswordForm({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<ForgotPasswordProvider>().formKey,
+      key: context.read<NewPasswordProvider>().formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -34,17 +35,17 @@ class ForgotPasswordForm extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 100.0,
+              top: 30.0,
               bottom: 40.0,
             ),
             child: SvgPicture.asset(
-              "assets/images/forgot_password.svg",
+              "assets/images/new_password.svg",
             ),
           ),
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Reset password",
+              "Enter new password",
               style: TextStyle(
                 fontSize: 22,
                 color: Color(0xff596992),
@@ -54,7 +55,7 @@ class ForgotPasswordForm extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const Text(
-            "Enter the email associated with your account and we will send an email with instructions to reset your password",
+            "Your new password must be different from previous used passwords",
             style: TextStyle(
               fontSize: 14,
               color: Color(0xff8E95A7),
@@ -62,13 +63,15 @@ class ForgotPasswordForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const ForgotPasswordEmailInput(),
+          const NewPasswordInput(),
+          const SizedBox(height: 16),
+          const NewPasswordConfirmationInput(),
           const Padding(
             padding: EdgeInsets.only(
-              top: 150.0,
+              top: 100.0,
               bottom: 120.0,
             ),
-            child: ForgotPasswordButton(),
+            child: NewPasswordButton(),
           ),
         ],
       ),

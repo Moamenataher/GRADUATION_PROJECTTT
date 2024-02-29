@@ -11,11 +11,12 @@ class ForgotPasswordProvider extends ChangeNotifier {
     return null;
   }
 
-  void sendForgotPasswordEmail() {
+  Future<bool> sendForgotPasswordEmail() async {
     if (!formKey.currentState!.validate()) {
-      return;
+      return false;
     }
 
     //TODO: Send email to the user
+    return true;
   }
 }
