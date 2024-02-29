@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../logic/login/login_provider.dart';
 import '../../../widgets/app_elevated_button.dart';
 import '../../../widgets/app_rich_text.dart';
+import '../../forgot_password/forgot_password_page.dart';
 import '../../registration/registration_page.dart';
 import 'login_name_or_email_input.dart';
 import 'login_password_input.dart';
@@ -45,7 +46,11 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ForgotPassword(),
+                ),
+              ),
               child: const Text(
                 'Forgot Password?',
                 style: TextStyle(

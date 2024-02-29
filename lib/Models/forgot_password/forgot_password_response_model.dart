@@ -1,8 +1,8 @@
 class ForgotPasswordResponseModel {
-  String message;
-  String status;
+  final String message;
+  final String status;
 
-  ForgotPasswordResponseModel(
+  const ForgotPasswordResponseModel(
     this.message,
     this.status,
   );
