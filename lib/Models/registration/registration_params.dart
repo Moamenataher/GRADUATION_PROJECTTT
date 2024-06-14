@@ -29,12 +29,12 @@ class RegistrationParams extends Equatable {
 
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
+      'username': name,
       'email': email,
-      'phone': phone,
-      'birthDate': birthDate,
+      'phoneNumber': phone,
+      'birthdate': birthDate,
       'password': password,
-      'passwordConfirmation': passwordConfirmation,
+      'password_confirmation': passwordConfirmation,
     };
   }
 }

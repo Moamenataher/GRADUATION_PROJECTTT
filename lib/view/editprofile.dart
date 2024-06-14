@@ -60,7 +60,7 @@ class _ProfileState extends State<EditProfile> {
                           builder: (context)=>Profile()));
                 }
                     ,style:ElevatedButton.styleFrom(
-                      primary:Colors.blue,
+                      backgroundColor:Colors.blue,
                       padding: EdgeInsets.symmetric(horizontal: 50),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
                     ) ,

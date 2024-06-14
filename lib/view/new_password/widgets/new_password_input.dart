@@ -13,14 +13,14 @@ class NewPasswordInput extends StatelessWidget {
     return AppTextField(
       controller: context.read<NewPasswordProvider>().newPasswordController,
       keyboardType: TextInputType.visiblePassword,
-      obscureText: context.watch<NewPasswordProvider>().isPasswordVisible,
+      obscureText: context.watch<NewPasswordProvider>().isPasswordObsecured,
       label: 'New Password',
       suffixIcon: GestureDetector(
         onTap: () {
           context.read<NewPasswordProvider>().togglePasswordVisibility();
         },
         child: SvgPicture.asset(
-          (context.watch<NewPasswordProvider>().isPasswordVisible)
+          (context.watch<NewPasswordProvider>().isPasswordObsecured)
               ? 'assets/icons/eye_slash_ic.svg'
               : 'assets/icons/eye_ic.svg',
         ),

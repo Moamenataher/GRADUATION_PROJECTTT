@@ -13,11 +13,9 @@ class ForgotPassword extends StatelessWidget {
       body: ChangeNotifierProvider(
         create: (context) => ForgotPasswordProvider(),
         child: const SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: ForgotPasswordForm(),
-            ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: ForgotPasswordForm(),
           ),
         ),
       ),

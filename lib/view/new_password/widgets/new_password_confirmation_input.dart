@@ -16,7 +16,7 @@ class NewPasswordConfirmationInput extends StatelessWidget {
           .newPasswordConfirmationController,
       keyboardType: TextInputType.visiblePassword,
       obscureText:
-          context.watch<NewPasswordProvider>().isPasswordConfirmationVisible,
+          context.watch<NewPasswordProvider>().isPasswordConfirmationObsecured,
       label: 'Password Confirmation',
       suffixIcon: GestureDetector(
         onTap: () {
@@ -25,7 +25,7 @@ class NewPasswordConfirmationInput extends StatelessWidget {
               .togglePasswordConfirmationVisibility();
         },
         child: SvgPicture.asset(
-          (context.watch<NewPasswordProvider>().isPasswordConfirmationVisible)
+          (context.watch<NewPasswordProvider>().isPasswordConfirmationObsecured)
               ? 'assets/icons/eye_slash_ic.svg'
               : 'assets/icons/eye_ic.svg',
         ),

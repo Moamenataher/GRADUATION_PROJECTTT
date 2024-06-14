@@ -20,13 +20,13 @@ class LoginPasswordInput extends StatelessWidget {
         return null;
       },
       keyboardType: TextInputType.visiblePassword,
-      obscureText: context.watch<LoginProvider>().isPasswordVisible,
+      obscureText: context.watch<LoginProvider>().isPasswordObsecured,
       suffixIcon: GestureDetector(
         onTap: () {
           context.read<LoginProvider>().togglePasswordVisibility();
         },
         child: SvgPicture.asset(
-          context.watch<LoginProvider>().isPasswordVisible
+          context.watch<LoginProvider>().isPasswordObsecured
               ? 'assets/icons/eye_slash_ic.svg'
               : 'assets/icons/eye_ic.svg',
         ),

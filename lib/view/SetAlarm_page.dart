@@ -39,12 +39,13 @@ class _SetAlarmPageState extends State<SetAlarmPage> {
             children: [
 
 
-             const  CustomTextField(
+             // const  CustomTextField(
+             //
+             //      fieldLable: "Set name",
+             //    fontWeight: FontWeight.bold,
+             //
+             //  ),
 
-                  fieldLable: "Set name",
-                fontWeight: FontWeight.bold,
-
-              ),
 
               const SizedBox(height: 60,),
 

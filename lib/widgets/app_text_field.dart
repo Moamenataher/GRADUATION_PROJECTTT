@@ -8,6 +8,7 @@ class AppTextField extends StatelessWidget {
     this.labelStyle,
     this.keyboardType,
     this.obscureText,
+    this.readOnly,
     this.valueStyle,
     this.enabledBorder,
     this.focusedBorder,
@@ -25,6 +26,7 @@ class AppTextField extends StatelessWidget {
   final TextStyle? labelStyle;
   final TextInputType? keyboardType;
   final bool? obscureText;
+  final bool? readOnly;
   final TextStyle? valueStyle;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
@@ -34,7 +36,6 @@ class AppTextField extends StatelessWidget {
   final EdgeInsets? contentPadding;
   final Widget? suffixIcon;
   final String? Function(String?) validator;
-  // final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,7 @@ class AppTextField extends StatelessWidget {
           controller: controller,
           keyboardType: keyboardType ?? TextInputType.text,
           obscureText: obscureText ?? false,
+          readOnly: readOnly ?? false,
           validator: validator,
           style: valueStyle ??
               const TextStyle(
@@ -84,7 +86,7 @@ class AppTextField extends StatelessWidget {
                 ),
             filled: isFilled ?? true,
             fillColor: fillColor ?? const Color(0xffFFFFFF),
-            contentPadding: contentPadding ?? const EdgeInsets.all(20),
+            contentPadding: contentPadding ?? const EdgeInsets.all(16),
             suffixIcon: Padding(
               padding: const EdgeInsets.all(14.0),
               child: suffixIcon,

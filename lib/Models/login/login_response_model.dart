@@ -1,16 +1,16 @@
 class LoginResponseModel {
-  final String token;
-  final String error;
+  final int? id;
+  final String? token;
 
   const LoginResponseModel({
+    required this.id,
     required this.token,
-    required this.error,
   });
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
       token: json["token"] ?? "",
-      error: json["error"] ?? "",
+      id: json["id"] ?? 0,
     );
   }
 }

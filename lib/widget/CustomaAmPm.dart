@@ -11,15 +11,15 @@ class CustomAmPm extends StatefulWidget {
 }
 
 class _CustomAmPmState extends State<CustomAmPm> {
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 70,
       height: 140,
       decoration: BoxDecoration(
-          color: primaryColor, borderRadius: BorderRadius.circular(20)),
+        color: const Color(0xffD8E6FB),
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25.0),
         child: Column(
@@ -52,7 +52,7 @@ class _CustomAmPmState extends State<CustomAmPm> {
                 style: TextStyle(
                   color: timeFormat == "PM"
                       ? const Color(0xff58B0CD)
-                      :const  Color(0xff596992),
+                      : const Color(0xff596992),
                   fontSize: 24,
                 ),
               ),

@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/helpers/error/error_handler.dart';
+
+import '../../Models/new_password/new_password_params.dart';
+import '../../helpers/network_services.dart';
+import '../../injection_container.dart';
+
+enum NewPasswordStatus { initial, loading, failure, success }
 
 class NewPasswordProvider extends ChangeNotifier {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -6,29 +13,56 @@ class NewPasswordProvider extends ChangeNotifier {
   final TextEditingController newPasswordConfirmationController =
       TextEditingController();
 
-  bool _isPasswordVisible = false;
-  bool get isPasswordVisible => _isPasswordVisible;
+  NewPasswordStatus _status = NewPasswordStatus.initial;
 
-  bool _isPasswordConfirmationVisible = false;
-  bool get isPasswordConfirmationVisible => _isPasswordConfirmationVisible;
+  NewPasswordStatus get status => _status;
+
+  late String? errorMessage;
+
+  bool _isPasswordObsecured = true;
+
+  bool get isPasswordObsecured => _isPasswordObsecured;
+
+  bool _isPasswordConfirmationObsecured = true;
+
+  bool get isPasswordConfirmationObsecured => _isPasswordConfirmationObsecured;
 
   void togglePasswordVisibility() {
-    _isPasswordVisible = !_isPasswordVisible;
+    _isPasswordObsecured = !_isPasswordObsecured;
     notifyListeners();
   }
 
   void togglePasswordConfirmationVisibility() {
-    _isPasswordConfirmationVisible = !_isPasswordConfirmationVisible;
+    _isPasswordConfirmationObsecured = !_isPasswordConfirmationObsecured;
     notifyListeners();
   }
 
-  void saveNewPassword() {
+  Future<void> saveNewPassword({required final String email}) async {
     final isFormNotValid = !formKey.currentState!.validate();
     if (isFormNotValid) {
       return;
     }
 
-    //TODO: Implement password confirmation logic
+    final params = NewPasswordParams(
+      password: newPasswordController.text,
+      confirmPassword: newPasswordConfirmationController.text,
+      email: email,
+    );
+
+    _status = NewPasswordStatus.loading;
+    notifyListeners();
+
+    try {
+      await injector<ApiService>().resetPassword(params);
+      _status = NewPasswordStatus.success;
+      notifyListeners();
+    } catch (error) {
+      errorMessage = ErrorHandler.handle(error).apiErrorModel.message;
+      _status = NewPasswordStatus.failure;
+      notifyListeners();
+
+      resetState();
+    }
   }
 
   String? validatePassword(String? value) {
@@ -46,5 +80,20 @@ class NewPasswordProvider extends ChangeNotifier {
       return 'Passwords do not match';
     }
     return null;
+  }
+
+  void resetState() {
+    Future.delayed(const Duration(seconds: 2), () {
+      _status = NewPasswordStatus.initial;
+      errorMessage = null;
+      notifyListeners();
+    });
+  }
+
+  @override
+  void dispose() {
+    newPasswordController.dispose();
+    newPasswordConfirmationController.dispose();
+    super.dispose();
   }
 }

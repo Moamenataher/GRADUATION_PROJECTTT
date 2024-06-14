@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/view/instruction_page.dart';
 import 'package:graduation_project/widget/CustomText.dart';
 
+import '../view/feedback&support_page.dart';
 import '../view/login/login_page.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -34,8 +35,8 @@ class CustomHomeAppBar extends StatelessWidget {
   }
 }
 
-class drawer extends StatelessWidget {
-  const drawer({super.key});
+class AppDrawer extends StatelessWidget {
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +62,11 @@ class drawer extends StatelessWidget {
               ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: const ListTile(
+            GestureDetector(
+              onTap: () {},
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.0),
+                child: ListTile(
                   leading: Icon(
                     Icons.account_circle,
                     color: Colors.white,
@@ -89,16 +90,16 @@ class drawer extends StatelessWidget {
 
             //---------------------------------------------------------------
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const InstructionPage()));
-                },
-                child: const ListTile(
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InstructionPage()));
+              },
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.0),
+                child: ListTile(
                   leading: Icon(
                     Icons.integration_instructions_outlined,
                     color: Colors.white,
@@ -122,11 +123,16 @@ class drawer extends StatelessWidget {
 
             //---------------------------------------------------------------
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: const ListTile(
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SupportPage()));
+              },
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.0),
+                child: ListTile(
                   leading: Icon(
                     Icons.handshake,
                     color: Colors.white,
@@ -150,18 +156,18 @@ class drawer extends StatelessWidget {
 
             //---------------------------------------------------------------
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginPage(),
-                    ),
-                  );
-                },
-                child: const ListTile(
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.0),
+                child: ListTile(
                   leading: Icon(
                     Icons.logout_sharp,
                     color: Colors.white,
