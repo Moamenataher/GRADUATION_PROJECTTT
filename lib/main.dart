@@ -12,6 +12,7 @@ import 'Models/alarm/alarm_hive_storage.dart';
 import 'firebase_options.dart';
 import 'logic/alarm/alarm_provider.dart';
 import 'logic/onboarding/onboarding_provider.dart';
+import 'test_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await initDependencies();
-  injector<FirebaseService>().getGlovesReading();
   NotificationService.init();
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.manual,
@@ -76,6 +76,7 @@ class MyApp extends StatelessWidget {
             create: (context) => OnboardingProvider(),
             child: const OnboardingPage(),
           ),
+          // home: const TestScreen(),
         ),
       ),
     );

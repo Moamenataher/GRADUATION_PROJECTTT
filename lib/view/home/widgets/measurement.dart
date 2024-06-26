@@ -1,7 +1,9 @@
 /// Dart imports
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -12,7 +14,9 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 class LiveLineChart extends StatefulWidget {
   /// Creates the realtime line chart sample.
-  const LiveLineChart({super.key});
+  const LiveLineChart({
+    super.key,
+  });
 
   @override
   State<LiveLineChart> createState() => _LiveLineChartState();
@@ -21,8 +25,8 @@ class LiveLineChart extends StatefulWidget {
 /// State class of the realtime line chart.
 class _LiveLineChartState extends State<LiveLineChart> {
   _LiveLineChartState() {
-    timer =
-        Timer.periodic(const Duration(milliseconds: 500), _updateDataSource);
+    // timer =
+    //     Timer.periodic(const Duration(milliseconds: 500), _updateDataSource);
   }
 
   Timer? timer;
@@ -33,7 +37,7 @@ class _LiveLineChartState extends State<LiveLineChart> {
   @override
   void dispose() {
     timer?.cancel();
-    chartData!.clear();
+    chartData?.clear();
     _chartSeriesController = null;
     super.dispose();
   }
@@ -41,9 +45,29 @@ class _LiveLineChartState extends State<LiveLineChart> {
   @override
   void initState() {
     count = 0;
-    chartData = <_ChartData>[
-      _ChartData(0, 42),
-    ];
+    // chartData = <_ChartData>[
+    //   _ChartData(56, 0.44),
+    // ];
+    FirebaseDatabase.instance.ref().child("Drawing").onValue.listen((event) {
+      final data = json.encode(event.snapshot.value);
+      final tempData = json.decode(data);
+      final temp = tempData as Map<String, dynamic>;
+
+      print(">>>>>>>>>>> ${temp} <<<<<<<<<<");
+
+      final convertedData = _ChartData.fromJson(temp);
+      if (chartData == null) {
+        print("------------- 1 -----------");
+        chartData = <_ChartData>[
+          _ChartData(convertedData.bpm, convertedData.vibration),
+        ];
+      } else {
+        print("------------- 2 -----------");
+        _updateDataSource(convertedData);
+      }
+
+      print("======== data length ::: ${chartData?.length} ============");
+    });
     super.initState();
   }
 
@@ -60,9 +84,8 @@ class _LiveLineChartState extends State<LiveLineChart> {
           plotAreaBorderWidth: 1,
           plotAreaBorderColor: Colors.transparent,
           borderColor: Colors.transparent,
-
           primaryXAxis:
-          const NumericAxis(majorGridLines: MajorGridLines(width: 0)),
+              const NumericAxis(majorGridLines: MajorGridLines(width: 0)),
           primaryYAxis: const NumericAxis(
               axisLine: AxisLine(width: 0),
               majorTickLines: MajorTickLines(size: 0)),
@@ -74,19 +97,19 @@ class _LiveLineChartState extends State<LiveLineChart> {
               },
               dataSource: chartData,
               color: const Color(0xffC2DEFF),
-              xValueMapper: (_ChartData sales, _) => sales.country,
-              yValueMapper: (_ChartData sales, _) => sales.sales,
-              animationDuration: 500,
+              yValueMapper: (_ChartData data, _) => data.bpm,
+              xValueMapper: (_ChartData data, _) => data.vibration.toInt(),
+              animationDuration: 100,
             )
           ]),
     );
   }
 
   ///Continuously updating the data source based on timer
-  void _updateDataSource(Timer timer) {
-    chartData!.add(_ChartData(count, _getRandomInt(10, 100)));
-    if (chartData!.length == 20) {
-      chartData!.removeAt(0);
+  void _updateDataSource(_ChartData data) {
+    chartData?.add(_ChartData(data.bpm, data.vibration));
+    if (chartData?.length == 20) {
+      chartData?.removeAt(0);
       _chartSeriesController?.updateDataSource(
         addedDataIndexes: <int>[chartData!.length - 1],
         removedDataIndexes: <int>[0],
@@ -100,15 +123,21 @@ class _LiveLineChartState extends State<LiveLineChart> {
   }
 
   ///Get the random data
-  int _getRandomInt(int min, int max) {
-    final math.Random random = math.Random();
-    return min + random.nextInt(max - min);
-  }
+// int _getRandomInt(int min, int max) {
+//   final math.Random random = math.Random();
+//   return min + random.nextInt(max - min);
+// }
 }
 
 /// Private class for storing the chart series data points.
 class _ChartData {
-  _ChartData(this.country, this.sales);
-  final int country;
-  final num sales;
+  _ChartData(this.bpm, this.vibration);
+
+  final double vibration;
+  final double bpm;
+
+  factory _ChartData.fromJson(Map<String, dynamic> json) => _ChartData(
+        json['BPM'],
+        json['Vibration'],
+      );
 }

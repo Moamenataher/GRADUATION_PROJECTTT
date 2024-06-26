@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -7,7 +8,6 @@ import 'package:retrofit/http.dart';
 
 import '../Models/disease_diagnosis/disease_prediction_response.dart';
 import '../Models/doctors/doctor_response.dart';
-import '../Models/home/measurement_model.dart';
 import '../Models/login/login_params.dart';
 import '../Models/login/login_response_model.dart';
 import '../Models/new_password/new_password_params.dart';
@@ -74,7 +74,19 @@ class FirebaseService {
 
   Future<void> getGlovesReading() async{
     _database.ref().child('Drawing').onValue.listen((event) {
-      print(">>>>>>> stream ::: ${event.snapshot}");
+      print(">>>>>>> stream ::: ${event.snapshot.value}");
+
+      final data = json.encode(event.snapshot.value);
+      final tempData = json.decode(data);
+      final temp = tempData as Map<String, dynamic>;
+
+      // final items = data.values.map(
+      //       (e) => TempModel.fromJson(e),
+      // );
+
+      print(">>>>>>>>>>> ${temp} <<<<<<<<<<");
+
+
     });
   }
 }

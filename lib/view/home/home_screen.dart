@@ -247,8 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          onTap: () =>
-                              _scaffoldKey.currentState!.openDrawer(),
+                          onTap: () => _scaffoldKey.currentState!.openDrawer(),
                           child: SvgPicture.asset('assets/icons/menu_ic.svg'),
                         ),
                         SvgPicture.asset('assets/icons/home_logo_ic.svg'),
@@ -311,10 +310,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 14,
-                                mainAxisSpacing: 12,
-                                childAspectRatio: 0.8),
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 14,
+                          mainAxisSpacing: 12,
+                          childAspectRatio: 0.8,
+                        ),
                         itemBuilder: (context, index) {
                           final serviceCard = _otherServices[index];
                           return OtherServicesCard(
