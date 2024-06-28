@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/helpers/network_services.dart';
 import 'package:graduation_project/helpers/notification_service.dart';
 import 'package:graduation_project/injection_container.dart';
+import 'package:graduation_project/view/alarm/alarm_screen.dart';
+import 'package:graduation_project/view/exercises/exercises_screen.dart';
+import 'package:graduation_project/view/instructions/instructions_screen.dart';
 import 'package:graduation_project/view/main/main_layout.dart';
 import 'package:graduation_project/view/onboarding/onboarding_page.dart';
 import 'package:provider/provider.dart';
@@ -76,7 +79,7 @@ class MyApp extends StatelessWidget {
             create: (context) => OnboardingProvider(),
             child: const OnboardingPage(),
           ),
-          // home: const TestScreen(),
+          // home: const ExercisesScreen(),
         ),
       ),
     );
@@ -84,3 +87,5 @@ class MyApp extends StatelessWidget {
 }
 
 const Color primaryColor = Color(0xffABD6E5);
+
+

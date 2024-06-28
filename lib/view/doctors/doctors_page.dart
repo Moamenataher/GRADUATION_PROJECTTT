@@ -140,7 +140,8 @@ class DoctorsPage extends StatelessWidget {
                                         decoration: const BoxDecoration(
                                           color: Colors.grey,
                                           borderRadius: BorderRadius.all(
-                                              Radius.circular(15)),
+                                            Radius.circular(15),
+                                          ),
                                         ),
                                         child: const Icon(
                                           Icons.warning_rounded,
